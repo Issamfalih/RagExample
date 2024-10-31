@@ -6,13 +6,13 @@ from rag import rag_stream
 
 load_dotenv()
 
-st.title('RAG : IA Générative avec Wikipédia')
+st.title('Winter School RAG Example')
 
 # Setup message with first message
 if "messages" not in st.session_state:
     st.session_state.messages = [{
         "role": "assistant",
-        "content": "Bonjour, je suis un assistant virtuel. Posez-moi des questions sur l'IA générative."
+        "content": "Bonjour, je suis un assistant virtuel. Posez-moi des questions sur l'IA générative. Mes bases se basent sur des documents wikipedia"
     }]
 
 # Display messages
@@ -21,7 +21,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Chat input
-if prompt := st.chat_input("C'est quoi l'IA générative ?"):
+if prompt := st.chat_input("Poser votre question ?"):
     user_message = {"role": "user", "content": prompt}
     st.session_state.messages.append(user_message)
     with st.chat_message("user"):
